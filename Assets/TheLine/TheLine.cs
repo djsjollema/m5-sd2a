@@ -13,10 +13,8 @@ public class TheLine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         f = new LinearFunction(2,3);
         lineRenderer = line.GetComponent<LineRenderer>();
-            
     }
 
     // Update is called once per frame
