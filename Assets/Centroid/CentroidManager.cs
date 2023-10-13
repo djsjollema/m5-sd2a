@@ -27,6 +27,10 @@ public class CentroidManager : MonoBehaviour
     public GameObject chab;
     private LineRenderer lchab;
 
+    private LinearFunction BhAC = new LinearFunction(1, 1);
+    public GameObject bhac;
+    private LineRenderer lbhac;
+    public GameObject centoid;
 
     void Start()
     {
@@ -34,6 +38,9 @@ public class CentroidManager : MonoBehaviour
         lrAC = AC.GetComponent<LineRenderer>();
         lrBC = BC.GetComponent<LineRenderer>();
         lchab =chab.GetComponent<LineRenderer>();
+        lbhac = bhac.GetComponent<LineRenderer>();
+
+       
 
     }
 
@@ -59,5 +66,11 @@ public class CentroidManager : MonoBehaviour
         lchab.SetPosition(0, new Vector3(-10, ChAB.GetY(-10), 0));
         lchab.SetPosition(1, new Vector3(10, ChAB.GetY(10), 0));
 
+        // function line B and half AC
+        BhAC.LineTroughTwoPoint(B.transform.position, hAC.transform.position);
+        lbhac.SetPosition(0, new Vector3(-10, BhAC.GetY(-10), 0));
+        lbhac.SetPosition(1, new Vector3(10, BhAC.GetY(10), 0));
+
+        centoid.transform.position = ChAB.intesection(BhAC);
     }
 }
