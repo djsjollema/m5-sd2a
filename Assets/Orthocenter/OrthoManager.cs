@@ -12,14 +12,6 @@ public class OrthoManager : MonoBehaviour
     public LineRenderer lineAB;
     public LineRenderer line_p_AB;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
